@@ -1,0 +1,11 @@
+html,body{
+    background: red;
+}
+
+#app{
+    font-size: 30px;
+}
+
+input::placeholder{
+    color: aqua;
+}
