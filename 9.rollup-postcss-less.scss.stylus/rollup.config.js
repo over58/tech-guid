@@ -23,6 +23,7 @@ module.exports = {
       extract: true,
       plugins: [autoprefixer()],
       minimize: true,
+      modules: true
     }),
   ],
 }

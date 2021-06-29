@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "core-js": "2",
+    "glob": "^7.1.7"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "chalk": "^4.1.1"
+  }
+}

@@ -14,7 +14,7 @@ const tsPlugin = ts({
 
 // 基础配置
 const commonConf = {
-  input: getPath('./src/main.ts'),
+  input: getPath('./src/main.tsx'),
   plugins: [nodeResolve(extensions), commonjs(), tsPlugin],
 }
 // 需要导出的模块类型

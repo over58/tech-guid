@@ -17,6 +17,27 @@ module.exports = {
 }
 ```
 
+## 压缩
+### 安装依赖
+```shell
+yarn add rollup-plugin-terser --dev
+```
+
+### rollup.config.js
+```js
+import { terser } from 'rollup-plugin-terser'
+
+module.exports = {
+  input: './src/main.js',
+  output: {
+    file: 'lib/demo.js',
+    format: 'es',
+  },
+  plugins: [terser()],
+}
+
+```
+
 ## 支持eslint
 ### 添加依赖
 ```
@@ -29,6 +50,9 @@ yarn add @rollup/plugin-commonjs  @rollup/plugin-eslint @rollup/plugin-node-reso
   > A Rollup plugin to lint entry points and all imported files with ESLint.
 - @rollup/plugin-node-resolve 
   > A Rollup plugin which locates modules using the Node resolution algorithm, for using third party modules in node_modules
+
+  > The @rollup/plugin-node-resolve plugin teaches Rollup how to find external modules. Install it…
+
 
 ### rollup.config.js
 ```js
@@ -187,9 +211,6 @@ yarn add postcss rollup-plugin-postcss -D
 
 ### rollup.config.json
 ```js
-import css from 'rollup-plugin-css-only' // 提取css
-import CleanCSS from 'clean-css'   // 压缩css
-import { existsSync, mkdirSync , writeFileSync} from 'fs'
 import postcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
 
@@ -203,6 +224,8 @@ module.exports = {
     postcss({
       extract: true,
       plugins: [autoprefixer()],
+      minimize: true, //压缩
+      modules: true, // scoped
     }),
   ],
 }
@@ -219,3 +242,5 @@ yarn add node-sass -D
 ```shell
 yarn add stylus -D
 ```
+
+## 
