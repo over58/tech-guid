@@ -3,10 +3,11 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        targets: '> 85%, not dead',
+        targets: '> 55%, not dead',
         useBuiltIns: 'usage',
-        "corejs": "3"
+        corejs: '3',
       },
     ],
   ],
+  plugins: ['@babel/plugin-transform-runtime'],
 }

@@ -243,4 +243,56 @@ yarn add node-sass -D
 yarn add stylus -D
 ```
 
-## 
+## 基于rollup + vue3 + ts打包一个UI库
+
+### 处理.vue文件
+```js
+import vuePlugin from 'rollup-plugin-vue'
+vuePlugin({
+  target: 'browser',
+  exclude: ['node_modules/**'],
+  include: /\.vue$/,
+}),
+```
+
+### 处理jsx、tsx
+```js
+import esbuild from 'rollup-plugin-esbuild' // ts ==> ks
+import vueJsx from 'rollup-plugin-vue-jsx-compat' // jsxFactory
+
+plugins: [
+  vueJsx(),
+  esbuild({
+    jsxFactory: 'vueJsxCompat',
+  })
+]
+```
+
+### 处理process等没有的变量
+```js
+import replace from 'rollup-plugin-replace'
+
+plugins: [
+  replace({
+    'process.env.NODE_ENV': JSON.stringify('development'),
+  }),
+]
+```
+
+### devServer
+```
+import serve from 'rollup-plugin-serve'
+
+plugins: [
+  serve({
+    open: false,
+    openPage: '/site/index.html',
+    port: 3000,
+    contentBase: '',
+  }),
+]
+```
+### 遇到的问题
+- rollup-plugin-jsx 有问题，无法正确处理jsx, Fragment无法处理，一些写法也不支持
+- 
+

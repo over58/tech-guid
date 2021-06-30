@@ -1,13 +1,16 @@
 import path from 'path'
 import commonjs from '@rollup/plugin-commonjs'
-import ts from '@rollup/plugin-typescript'
 import { nodeResolve } from '@rollup/plugin-node-resolve' // 依赖引用插件
 import { babel } from '@rollup/plugin-babel'
 import eslint from '@rollup/plugin-eslint' // eslint插件
 import packageJSON from '../package.json'
 import postcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
+import esbuild from 'rollup-plugin-esbuild'
+import vueJsx from 'rollup-plugin-vue-jsx-compat'
 import vuePlugin from 'rollup-plugin-vue'
+import replace from 'rollup-plugin-replace'
+import serve from 'rollup-plugin-serve'
 
 const getPath = (_path) => path.resolve(__dirname, _path)
 const extensions = ['.js', '.ts', '.tsx']
@@ -17,29 +20,36 @@ const esPlugin = eslint({
   exclude: ['node_modules/**', 'lib/**'],
 })
 
-// ts
-const tsPlugin = ts({
-  tsconfig: getPath('../tsconfig.json'), // 导入本地ts配置
-})
-
 const commonConf = {
-  input: getPath('./src/components/index.ts'),
+  input: getPath('../site/main.ts'),
   plugins: [
-    nodeResolve(extensions),
     commonjs(),
-    vuePlugin({
-      target: 'browser',
-      exclude: ["node_modules/**"],
-      include: ["src/**"]
-    }),
-    esPlugin,
-    tsPlugin,
-    babel({ babelHelpers: 'bundled' }),
+    nodeResolve(extensions),
     postcss({
       extract: true,
       plugins: [autoprefixer()],
       minimize: true, //压缩
-      modules: true, // scoped
+      modules: false // scoped
+    }),
+    vueJsx(),
+    esbuild({
+      jsxFactory: 'vueJsxCompat',
+    }),
+    vuePlugin({
+      target: 'browser',
+      exclude: ['node_modules/**'],
+      include: /\.vue$/
+    }),
+    esPlugin,
+    babel({ babelHelpers: 'bundled', exclude: ['node_modules/**/*'] }),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('development'),
+    }),
+    serve({
+      open: false,
+      openPage: '/site/index.html',
+      port: 3000,
+      contentBase: '',
     }),
   ],
 }
@@ -47,12 +57,7 @@ const commonConf = {
 // 需要导出的模块类型
 const outputMap = [
   {
-    file: packageJSON.main, // 通用模块
-    format: 'umd',
-    sourcemap: true,
-  },
-  {
-    file: packageJSON.module, // es6模块
+    file: "lib/site/index.es.js", // es6模块
     format: 'es',
     sourcemap: true,
   },

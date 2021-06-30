@@ -1,5 +1,4 @@
 const rollup = require('rollup')
-// import path from 'path'
 const chalk = require('chalk')
 const glob = require('glob')
 const { COMPONENTS_DIR } = require('./config.js')
@@ -17,16 +16,18 @@ function build() {
 
 async function buildComponents(componentName) {
   const { inputConfig, outputConfig } = getComponentRollupConfig(componentName)
-  // console.log(inputConfig)
   try {
     const bundle = await rollup.rollup(inputConfig)
     await bundle.write(outputConfig)
     console.log('component ' + componentName + ' are build successfully')
   } catch (error) {
     console.log(chalk.red(error))
+    process.exit(1)
   }
 }
 
 console.log(chalk.yellow('begin to build components...'))
 
 build()
+
+console.log(chalk.green('success~'))
