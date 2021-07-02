@@ -18,17 +18,23 @@
 
 
          Object.defineProperty(person, 'address', {
-            // value: { a: 'a' },
-           enumerable: true,
-             configurable: true,
-            set() {
-                console.log("====调用了set====")
-            }
+            enumerable: true,
+            configurable: true,
+            // value: {
+                set(newValue) {
+                    console.log("====调用了set====")
+                    person.address = newValue
+                },
+                get() {
+                    return person
+                }
+            // }
         })
 
         function handler() {
             person.address.a = 'aaaa'
-            person.address['b'] = 'b'
+            // person.address = 'new'
+            // person.address['b'] = 'b'
         }
 
 

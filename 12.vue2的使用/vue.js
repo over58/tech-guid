@@ -2151,6 +2151,7 @@ let initProxy;
         ? getHandler
         : hasHandler;
       vm._renderProxy = new Proxy(vm, handlers);
+      console.log("===intiProxy====")
     } else {
       vm._renderProxy = vm;
     }

@@ -10,6 +10,5 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {},
-    "exclude": ["./vue.js"]
+    "rules": {}
   }

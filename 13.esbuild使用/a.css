@@ -1,0 +1,5 @@
+a{color: red}
+a::before{
+    content: '这是css中的内容';
+    background: green;
+}

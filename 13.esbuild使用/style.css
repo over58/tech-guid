@@ -1,0 +1,5 @@
+@import url('./a.css');
+#app{
+    height: 300px;
+    border: dashed 10px palegoldenrod;
+}
