@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.container{
+				display: flex;
+			}
+			.child{
+				flex: 50px;
+				background: grey;
+			}
+			.child:nth-child(2) {
+				background: red;
+				height: 60px;
+				flex-basis: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="child">1</div>
+			<div class="child">2</div>
+			<div class="child">3</div>
+		</div>
+	</body>
+</html>

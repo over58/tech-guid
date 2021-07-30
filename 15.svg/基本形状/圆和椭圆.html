@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        svg #circle,
+        ellipse {
+            stroke-dasharray: 200 200;
+            /* 逆时针 */
+            stroke-dashoffset: 200;
+            transition: all ease 1s;
+        }
+
+        #circle:hover {
+            stroke-dashoffset: 0;
+        }
+
+        svg #ellipse {
+            stroke-dasharray: 500 500;
+            /* 顺时针 */
+            stroke-dashoffset: -500;
+            transition: all ease 1s;
+        }
+
+        #ellipse:hover {
+            stroke-dashoffset: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <svg viewBox="0 0 300 300" width="400" height="400">
+        <circle id="circle" cx="50" cy="50" r="30" fill="#0f0" fill-opacity="0.5" stroke="#f00" stroke-linecap="square"
+            stroke-width="5">
+        </circle>
+
+        <ellipse id="ellipse" cx="150" cy="90" rx="30" ry="60" fill="#0f0" fill-opacity="0.5" stroke="#f00"
+            stroke-linecap="square" stroke-width="5">
+        </ellipse>
+    </svg>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#parent{
+				padding: 20px;
+				background: green;
+			}
+			
+			#child{
+				padding: 10px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="parent">
+			<div id="child">child</div>
+		</div>
+	</body>
+		<script type="text/javascript">
+			window.onload = function() {
+				
+				 let child = document.getElementById('child')
+				 console.log(child)
+				 child.attachEvent('onclick', function() {
+					console.log('child')
+				})
+				
+				let parent = document.getElementById('parent')
+				parent.attachEvent('onclick', function() {
+					console.log('parent')
+				})
+			}
+		</script>
+</html>

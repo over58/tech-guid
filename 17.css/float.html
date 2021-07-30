@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.container{
+				border: solid 1px red;
+			}
+			.float {
+				width: 100px;
+				height: 100px;
+				float: left;
+				background-color: #00FFFF;
+			}
+			
+			.inline{}
+			.block{
+				display: block;
+				background: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- 高度塌陷 -->
+			<div class="float">float </div>
+			
+			
+			<span class="inline">inline</span>
+			<span class="inline">inline</span>
+			<span class="inline">inline</span>
+			<span class="inline">inline</span>
+			<div class="block">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi dolorem facere ipsum blanditiis asperiores iusto corporis odit tenetur commodi sit accusantium placeat nesciunt autem quo repudiandae architecto enim delectus eum?
+			</div>
+		</div>
+	</body>
+</html>
