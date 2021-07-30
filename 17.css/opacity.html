@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.box{
+			opacity: 0;
+		}
+		.child{
+			opacity: 1;
+		}
+		</style>
+	</head>
+	<body>
+		<!-- opacity会被继承，而且子元素无法修改 -->
+		<div class="box">
+			box
+			<div class="child">child</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.box{
+			visibility: hidden;
+		}
+		.child{
+			visibility: visible;
+		}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function handleClick(ele){
+				console.log('print', ele)
+			}
+		</script>
+		<!-- visibility会被继承，但是子元素可以通过显示的设置来更改 -->
+		<!-- 点击被hidden元素本身并不会触发自己的listener, 但是未被hidden的子元素的话，是可以通过冒泡来触发visibiliy:hidden父元素的事件监听的 -->
+		<div class="box" onclick="handleClick('box')">
+			box
+			<div class="child" onclick="handleClick('child')">child</div>
+		</div>
+	</body>
+</html>
