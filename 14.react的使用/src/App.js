@@ -1,11 +1,13 @@
 import './App.css';
-import ContextDemo from './src/ContextDemo.js'
+// import ContextDemo from './components/ContextDemo.js'
+import RefDemo from './components/RefDemo.js'
 
 function App() {
   return (
     <div className="App">
       <h3>hello react</h3>
-      <ContextDemo></ContextDemo>
+      {/* <ContextDemo></ContextDemo> */}
+      <RefDemo></RefDemo>
     </div>
   )
 }
