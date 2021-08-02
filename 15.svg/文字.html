@@ -20,8 +20,7 @@
             stroke: aqua;
             stroke-dasharray: 600 600;
             stroke-dashoffset: 600;
-            animation: draw 2s ease-in-out infinite;
-
+            animation: draw 3s ease-in-out infinite, moveLeft 2s linear 3s infinite;
         }
 
         @keyframes draw {
@@ -37,6 +36,23 @@
                 stroke-dasharray: 400 400;
                 stroke-dashoffset: 0;
             }
+        }
+
+        @keyframes moveLeft {
+
+            0%,
+            100% {
+                transform: translateX(0)
+            }
+
+            30% {
+                transform: translateX(-50px)
+            }
+
+            60% {
+                transform: translateX(50px)
+            }
+
         }
     </style>
 </head>
