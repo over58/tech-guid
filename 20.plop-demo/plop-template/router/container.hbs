@@ -1,0 +1,25 @@
+<template>
+{{#if router}}
+  <router-view />
+{{else }}
+  <div class="container">
+    {{name}}
+  </div>
+{{/if}}
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+    }
+  },
+  created () {
+  }
+}
+</script>
+<style lang="less" scoped>
+.container{
+
+}
+</style>

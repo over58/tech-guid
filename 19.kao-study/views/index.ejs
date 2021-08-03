@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h3>hello koa2</h3>
+    <p>
+        <div>
+            <%- unescape %>
+        </div>
+        <%= unescape %>
+    </p>
+
+    <div>
+        <div>
+            <%_ test %>
+        </div>
+        <%= test%>
+    </div>
+    <img src="/a.jpg" alt="">
+    <img src="/b.jpg" alt="">
+    <img src="/icon_account.svg" alt="">
+    <ul>
+        <li>
+            <a href="/">home</a>
+        </li>
+        <li>
+            <a href="/todo">todo</a>
+        </li>
+        <li>
+            <a href="/404">404</a>
+        </li>
+    </ul>
+</body>
+</html>

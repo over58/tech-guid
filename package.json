@@ -1,4 +1,6 @@
 {
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "plop": "^2.7.4"
   }
 }

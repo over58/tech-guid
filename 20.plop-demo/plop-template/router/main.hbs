@@ -1,0 +1,31 @@
+import '@/less/base.less'
+import 'flex.css'
+
+import Container from './Container.vue'
+import Vue from 'vue'
+{{#if router}}
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  routes: [
+    {
+      path: '/',
+      component: () => import(/* webpackChunkName: "{{camelName}}_Home" */ './Home.vue')
+    },
+    {
+      path: '*',
+      redirect: '/'
+    }
+  ]
+})
+{{/if}}
+
+new Vue({
+  el: '#container',
+  {{#if router}}
+  router,
+  {{/if}}
+  render: h => h(Container)
+})
