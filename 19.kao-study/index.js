@@ -17,7 +17,8 @@ const router = new Router()
 router.get('/', async (ctx) => {
     await ctx.render('index', {
         title: 'home page',
-        unescape: '<%>未加密的值<%><b>aaa</b>'
+        unescape: '<%>未加密的值<%><b>aaa</b>',
+        test: '        <%>未加密的值<%><b>aaa</b>',
     })
 }).get('/todo', async ctx => {
     await ctx.render('todo', {

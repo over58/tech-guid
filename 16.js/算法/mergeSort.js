@@ -1,3 +1,8 @@
+/**
+*   最佳情况：T(n) = O(n)
+	最差情况：T(n) = O(nlogn)
+	平均情况：T(n) = O(nlogn)
+ */
 let count = 0
 function merge (l1, l2) {
 	if(!l1.length) return l2
@@ -15,29 +20,36 @@ function merge (l1, l2) {
 
 	for (let i = 0; i < small.length; i++) {
 		// 往大数组里面插入
-		for (let j = prev+1; j < large.length ; j++) {
-			// 小于large[0]
-			if(j=== 0 && small[i] < large[j]){
-				large.unshift(small[i])
-				prev = 0
-				break
-			}
+		// for (let j = prev+1; j < large.length ; j++) {
+		// 	// 小于large[0]
+		// 	if(j=== 0 && small[i] < large[j]){
+		// 		large.unshift(small[i])
+		// 		prev = 0
+		// 		break
+		// 	}
 			
-			// 大于large[large.length - 1]
-			if(j === large.length - 1 && small[i] >= large[j]) {
-				large.push(small[i])
-				prev = large.length - 1
-				break
-			}
+		// 	// 大于large[large.length - 1]
+		// 	if(j === large.length - 1 && small[i] >= large[j]) {
+		// 		large.push(small[i])
+		// 		prev = large.length - 1
+		// 		break
+		// 	}
 			
-			// 处于中间位置
-			if((small[i] >= large[j] && small[i] <= large[j+1])) {
-				large.splice(j+1, 0, small[i])
-				prev = j+1
-				break
-			}
+		// 	// 处于中间位置
+		// 	if((small[i] >= large[j] && small[i] <= large[j+1])) {
+		// 		large.splice(j+1, 0, small[i])
+		// 		prev = j+1
+		// 		break
+		// 	}
 			
+		// }
+
+		// 方法二
+		let j = large.length - 1
+		while(j>=0 && small[i] < large[j]) {
+			j--
 		}
+		large[j+1] = small[i]
 	}
 	count++ 
 	return large

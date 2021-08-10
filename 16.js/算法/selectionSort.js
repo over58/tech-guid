@@ -1,4 +1,9 @@
-// O(n^2)
+/**
+ * 
+ *  最佳情况：T(n) = O(n2)
+	最差情况：T(n) = O(n2)
+	平均情况：T(n) = O(n2)
+ */
 // 选择后面最小的元素
 function selectionSort(nums){
 	let minIndex 

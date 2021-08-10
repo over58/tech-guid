@@ -15,6 +15,16 @@ export default new VueRouter({
                     path: '',
                     name: 'provide-inject',
                     component: () => import(/*webpackChunkName: "provide-inject" */ '../views/provide-inject/index.vue')
+                },
+                {
+                    path: 'throttle',
+                    name: 'throttle',
+                    component: () => import(/*webpackChunkName: "throttle" */ '../views/throttle.vue')
+                },
+                {
+                    path: 'lazy',
+                    name: 'lazy',
+                    component: () => import(/*webpackChunkName: "lazy" */ '../views/lazy.vue')
                 }
             ]
         }
