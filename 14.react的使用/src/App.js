@@ -1,6 +1,6 @@
 import './App.css';
 // import ContextDemo from './components/ContextDemo.js'
-import RefDemo from './components/RefDemo.js'
+import RefDemo from './components/RefDemo.js';
 
 function App() {
   return (

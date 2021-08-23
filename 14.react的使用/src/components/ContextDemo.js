@@ -1,10 +1,10 @@
-import React from 'react'
-import { createContext, useContext } from 'react'
+import React, { createContext, useContext } from 'react'
 
 const ThemeContext = createContext('light')
 
 const TodoLink = () => {
   const theme = useContext(ThemeContext)
+
   console.log('theme',theme)
   return (
     <div>

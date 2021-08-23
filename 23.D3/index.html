@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        p{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- <p>hello</p>
+    <p>world</p> -->
+
+    <svg viewBox="0 0 300 300">
+        <circle r="10" cx="150" cy="150" stroke="red" fill="none"></circle>
+        <circle r="10" cx="200" cy="200" stroke="red" fill="none"></circle>
+    </svg>
+
+    <script>
+        // d3.selectAll('p').style('color','red')
+        // .data([2,4])
+        // .style('font-size', function(d){
+        //     console.log(d)
+        //     return d*d+'px'
+        // })
+        // .data([6,12])
+        // .style('margin-top', function(value){
+        //     return value + 'px'
+        // })
+        // d3.select('body').style('background-color', 'gray');
+
+
+        // enter添加
+        // var p = d3.select("body")
+        //         .selectAll("span")
+        //         .data([4, 8, 15, 16, 23, 42]) // data和dom 绑定在以后，如果data.length > dom.length，剩下的数据将会enter
+        //         .enter().append("p")
+                // .text(function (d) { return "I’m number " + d + "!"; });
+        
+        // update
+        // d3.select('body')
+        // .selectAll('p')
+        // .data([4, 8, 15, 16, 23, 42])
+        // .text(function(d, i, other){
+        //     console.log(d,i, other)
+        //     return d
+        // });
+
+        // console.log(p)
+        // let a = d3.select("body")
+        //         .selectAll("p")
+        //         .data([4, 8, 15, 16, 23, 42]) .exit().remove();
+        //         console.log(a)
+
+
+          d3.select('body')
+            .selectAll('circle')
+            .data([10,10, 30])
+            .transition()
+            .duration(750)
+            .delay(function(d,i){
+                return i * 10
+            })
+            .attr('r', function(d){
+                return Math.sqrt(30*2)
+            })
+              
+
+    </script>
+</body>
+</html>
